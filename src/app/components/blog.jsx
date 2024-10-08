@@ -1,15 +1,21 @@
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Blog = (props) => {
-  const { title, tags, img, name, date, profile, url } = props;
+  const { title, tags, img, name, date, profile, url, id } = props;
+  const router = useRouter();
+  // const routerPush = (id) => {
+  //   router.push(id);
+  // };
   return (
     <div>
       <div className="blog-container">
         <img src={img} className="img" />
         <div className="text-container">
-          <Link href={url} className="type">
-            {tags}
-          </Link>
+          <button onClick={() => router.push(id.toString())}>{tags}</button>
+          {/* <Link href={''} className="type" onClick={() => routerPush(id)}>
+            {tags}  
+          </Link> */}
           <div className="title">{title}</div>
           <div className="footer-container">
             <div className="user-container">

@@ -6,7 +6,6 @@ const Page = () => {
   const [count, setCount] = useState(1);
   const [data, setData] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [nothing, setNothing] = useState("");
   const getData = async () => {
     const dataJSON = await fetch(
       `https://dev.to/api/articles?per_page=${limit}&page=${count}`
@@ -53,6 +52,7 @@ const Page = () => {
               date={item.readable_publish_date}
               profile={item.user.profile_image}
               url={item.url}
+              id={item.id}
             />
           );
         })}
